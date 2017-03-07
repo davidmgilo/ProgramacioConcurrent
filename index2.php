@@ -19,8 +19,8 @@ class Profile {
     public function updateProfile(){
         $f = new FileUpload(); //pic
 
-        $f->save(function (){
-            echo "El fitxer s'ha guardat";
+        $f->save(function ($path){
+            echo "El fitxer s'ha guardat a " . $path;
         });
     }
 }
