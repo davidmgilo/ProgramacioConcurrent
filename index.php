@@ -2,8 +2,11 @@
 
 function b($callback){
     echo "b\n";
-
-    call_user_func($callback);
+    if(is_callable($callback)) {
+        call_user_func($callback);
+    }else{
+        echo $callback;
+    }
 }
 
 function a(){
@@ -11,3 +14,6 @@ function a(){
 }
 
 b('a');
+
+$x = 5;
+b($x);
