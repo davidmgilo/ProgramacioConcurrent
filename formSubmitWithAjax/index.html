@@ -11,19 +11,17 @@
 
 <form action="process.php">
     <input type="text" name="nom" placeholder="Your name here">
-    <button type="submit"></button>
+    <button type="submit">Submit</button>
 </form>
 
 <script>
 
-function submitForm() {
-    console.log('submit form');
-    var form = document.querySelector('form');
+var form = document.querySelector('form');
 
-    form.onsubmit = function () {
-        console.log('Submitting');
-    }
-}
+form.onsubmit = function (evt) {
+    evt.preventDefault();
+    console.log('Submitting');
+};
 
 </script>
 
