@@ -9,9 +9,9 @@
 </head>
 <body>
 
-<form action="process.php">
+<form>
     <input type="text" name="nom" placeholder="Your name here">
-    <button type="submit">Submit</button>
+    <button type="submit">Send</button>
 </form>
 
 <script>
@@ -21,9 +21,23 @@ var form = document.querySelector('form');
 form.onsubmit = function (evt) {
     evt.preventDefault();
     console.log('Submitting');
+
+    var formData = new FormData(document.querySelector('form'));
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:8080/formSubmitWithAjax/name.json");
+    xhr.onload = function () {
+        if(xhr.readyState === xhr.DONE){
+            if(xhr.status === 200) {
+                console.log(xhr.response);
+                console.log(xhr.responseText);
+            }
+        }
+    }
+    xhr.send(formData);
+
 };
 
 </script>
-
 </body>
 </html>
