@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form>
+    <input type="text" name="nom" placeholder="Your name here">
+    <button type="submit">Send</button>
+</form>
+
+<script>
+
+var form = document.querySelector('form');
+
+form.onsubmit = function (evt) {
+    evt.preventDefault();
+    console.log('Submitting');
+
+    var formData = new FormData(document.querySelector('form'));
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:8080/formSubmitWithAjax/name.json");
+    xhr.onload = function () {
+        if(xhr.readyState === xhr.DONE){
+            if(xhr.status === 200) {
+                console.log(xhr.response);
+                console.log(xhr.responseText);
+            }
+        }
+    }
+    xhr.send(formData);
+
+};
+
+</script>
+</body>
+</html>
