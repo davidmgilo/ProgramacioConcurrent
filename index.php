@@ -1,9 +1,13 @@
 <?php
 
 function b($callback){
-    echo 'b';
+    echo "b\n";
 
     call_user_func($callback);
 }
 
-b();
+function a(){
+    echo "a\n";
+}
+
+b('a');
