@@ -10,7 +10,7 @@ function b($callback){
 }
 
 function a(){
-    echo "a\n";
+    echo "prova\n";
 }
 
 b('a');
