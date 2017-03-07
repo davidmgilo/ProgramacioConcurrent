@@ -1,6 +1,5 @@
-function foo() {
-    console.error('foo');
+function b() {
+    console.log('b')
 }
-process.nextTick(foo);
-//setTimeout(foo,0);
-console.error('bar');
+
+b()
